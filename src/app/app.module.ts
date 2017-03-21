@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from "@angular/router";
+import {LocationStrategy,HashLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
@@ -29,7 +30,8 @@ import {routes} from "./routes";
     RouterModule.forRoot(routes)
   ],
   providers: [
-    SPOTIFY_PROVIDERS
+    SPOTIFY_PROVIDERS,
+    {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
